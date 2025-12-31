@@ -6,7 +6,7 @@ let isReceiving = false;
 const host = "dd4cf6d1fe974d8e8652073f1ed06c3b.s1.eu.hivemq.cloud";
 const port = 8884;
 const username = "apurv-anand";
-const password = "ESP32/DATA";
+const password = "ESP32data";
 const topic = "esp32/data";
 
 /* GRAPH STATES */
@@ -272,4 +272,5 @@ function pushData(chart, label, value) {
   chart.yChart.options.scales.y.max = yScale.max;
   chart.yChart.update("none");
 }
+
 
