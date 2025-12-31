@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ESP32 Medical Analytics Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>ESP32 Medical Analytics Dashboard</h2>
+
+<!-- STATUS & CONTROLS -->
+<div class="card">
+  <div class="status-row">
+    Status: <strong id="status">Disconnected</strong>
+  </div>
+
+  <div class="control-row">
+    <button class="btn connect" onclick="connectMQTT()">Connect</button>
+    <button class="btn start" id="startBtn">Start</button>
+    <button class="btn stop" id="stopBtn">Stop All</button>
+  </div>
+</div>
+
+<!-- GRAPH CONTROL BUTTONS -->
+<div class="card hidden" id="graphControls">
+  <button class="btn start" id="g1">Plot / Stop FCG</button>
+  <button class="btn start" id="g2">Plot / Stop SCG</button>
+  <button class="btn start" id="g3">Plot / Stop PCG</button>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+
+  <!-- LOG PANEL -->
+  <div class="log-panel card">
+    <h3>Incoming Data</h3>
+    <a id="downloadLink" download="incoming_data.csv"></a>
+    <button class="btn dwld" onclick="download()">Download</button> 
+    <div id="log"></div>
+  </div>
+
+  <!-- GRAPH PANEL -->
+  <div class="graph-panel">
+
+    <div class="card hidden" id="fcg">
+      <h3>FCG (Piezo)</h3>
+      <div class="axis">
+        <canvas class="y-axis" id="ychart1"></canvas>
+        <div class="graph-scroll">
+        <canvas id="chart1"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card hidden" id="scgAx">
+      <h3>SCG-AX</h3>
+      <div class="axis">
+        <canvas class="y-axis" id="ychart2"></canvas>
+        <div class="graph-scroll">
+        <canvas id="chart2"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card hidden" id="scgAy">
+      <h3>SCG-AY</h3>
+      <div class="axis">
+        <canvas class="y-axis" id="ychart3"></canvas>
+        <div class="graph-scroll">
+        <canvas id="chart3"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card hidden" id="scgAz">
+      <h3>SCG-AZ</h3>
+      <div class="axis">
+        <canvas class="y-axis" id="ychart4"></canvas>
+        <div class="graph-scroll">
+        <canvas id="chart4"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card hidden" id="pcg">
+      <h3>PCG</h3>
+      <div class="axis">
+        <canvas class="y-axis" id="ychart5"></canvas>
+        <div class="graph-scroll">
+        <canvas id="chart5"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<script src="project.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #e5e7eb;
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+/* CARD */
+.card {
+  background: #2b2b2b;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #6a6868;
+}
+
+#dld{
+  align-self: right;
+}
+
+.hidden {
+  display: none;
+}
+
+/* STATUS & CONTROLS */
+.status-row {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.control-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.start {
+  background: #209a59;
+  color: white;
+  
+}
+.btn.start:hover {
+  background: #f2fdf6;
+  color: #444;
+}
+
+.stop {
+  background: #444;
+  color: #209a59;
+}
+.btn.stop:hover {
+  background: white;
+  color: #444;
+}
+
+.connect {
+  background: black;
+  color: white;
+  border: 1px solid white;
+}
+.connect:hover {
+  background: white;
+  color: black;
+}
+
+/* DASHBOARD LAYOUT */
+.dashboard {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;   
+}
+
+
+
+/* LOG PANEL */
+.log-panel {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+#log {
+  background: #1f1f1f;
+  padding: 10px;
+  flex:1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 13px;
+  border-radius: 10px;
+  word-break: break-word;
+  line-height: 1.4;
+  overflow-y: auto;
+}
+
+/* GRAPH PANEL */
+.graph-panel {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.axis {
+  display: flex;
+  position: relative;
+}
+
+.y-axis {
+  width: 60px;
+  height: 260px;
+  background: #2b2b2b;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  padding-left: 6px;
+}
+
+
+/* GRAPH CONTAINER */
+.graph-scroll {
+  height: 300px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #2b2b2b;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.graph-scroll canvas{
+  height: 260px;
+}
+
+/* DO NOT SCALE CANVAS */
+canvas {
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .log-panel {
+    height: auto;
+  }
+}
